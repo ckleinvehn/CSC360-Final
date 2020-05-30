@@ -1,6 +1,9 @@
 // React
 import React from 'react';
 
+// React Router
+import { withRouter } from 'react-router';
+
 // Material UI
 import { Button, TextField, Typography } from '@material-ui/core';
 import { Alert, Skeleton } from '@material-ui/lab';
@@ -16,18 +19,35 @@ import browseFetch from './BrowseFetch.js';
 import QueryList from './QueryList';
 
 
-export default class Browse extends React.Component {
+class Browse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null,
-      query: '',   // not yet submitted
-      queries: [], // those submitted
+      query: '',                 // not yet submitted
+      queries: this.processQueries(), // those submitted
       beginValue: moment().subtract(1, 'months').format('YYYY-MM-DD'),
       endValue: moment().format('YYYY-MM-DD'),
       errors: [],
       doNotDisplay: true
     };
+  }
+
+
+  componentDidMount() {
+    // instead of initializing state to these query params, I chose to re-use functionality
+    let end = new URLSearchParams(window.location.search).get('end');
+    if (end) this.handleDateChange(end, false);
+
+    let begin = new URLSearchParams(window.location.search).get('begin');
+    if (begin) this.handleDateChange(begin, true);
+  }
+
+
+  processQueries = () => {
+    let queries = new URLSearchParams(window.location.search).get('queries');
+    if (queries) return queries.split(',').slice(0, 10).map(e => decodeURIComponent(e));
+    else return [];
   }
 
 
@@ -45,6 +65,13 @@ export default class Browse extends React.Component {
   }
 
 
+  changeQueryArgs = () => {
+    this.props.history.push(
+      `${window.location.pathname}?begin=${this.state.beginValue}&end=${this.state.endValue}&queries=${encodeURIComponent(this.state.queries.join())}`
+    );
+  }
+
+
   handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       if (this.state.queries.length >= 10) {
@@ -55,20 +82,21 @@ export default class Browse extends React.Component {
       this.setState({
         queries: this.state.queries.concat(this.state.query), // concat so it's a new array 
         query: ''
-       });
+       }, this.changeQueryArgs);
     }
   }
 
 
   handleDelete = (i) => {
     this.setState({ queries: this.state.queries.slice(0, i).concat(this.state.queries.slice(i + 1)) }, () => {
+      this.changeQueryArgs();
       if (this.state.queries.length === 0) this.setState({ doNotDisplay: true });
     })
   }
 
 
   handleDeleteAll = () => {
-    this.setState({ queries: [], doNotDisplay: true });
+    this.setState({ queries: [], doNotDisplay: true }, this.changeQueryArgs);
   }
 
 
@@ -76,12 +104,14 @@ export default class Browse extends React.Component {
     const dateVal = moment(date);
     if (!dateVal.isValid()) return;
 
-    if (isStartDate && dateVal.isBefore(this.state.endValue))
-      this.setState({ beginValue: dateVal });
-    else if (!isStartDate && dateVal.isAfter(this.state.startValue))
-      this.setState({ endValue: dateVal });
-    else
+    if (isStartDate && dateVal.isBefore(moment(this.state.endValue)))
+      this.setState({ beginValue: dateVal.format('YYYY-MM-DD') }, this.changeQueryArgs);
+    else if (!isStartDate && dateVal.isAfter(moment(this.state.beginValue)))
+      this.setState({ endValue: dateVal.format('YYYY-MM-DD') }, this.changeQueryArgs);
+    else {
+      console.log(dateVal); console.log(moment(this.state.startValue));
       this.setError('The start date may not come after the end date.');
+    }
   }
 
 
@@ -204,6 +234,7 @@ export default class Browse extends React.Component {
   }
 }
 
+export default withRouter(Browse);
 
 const colors = ['57, 106, 177',
                 '218, 124, 48',
