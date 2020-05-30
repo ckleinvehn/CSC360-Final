@@ -12,10 +12,17 @@ const colors = ['57, 106, 177',
                 '83, 81, 84',
                 '107, 76, 154',
                 '146, 36, 40',
-                '148, 139, 61'];
+                '148, 139, 61',
+                '128, 222, 234',
+                '109, 76, 65',
+                '96, 125, 139',
+                '240, 98, 146',
+                '101, 31, 255',
+                '0, 151, 167',
+                '0, 121, 107'];
 
 
-export default async function trendsFetch(top_n_keywords = 5, date = moment().subtract(1, 'months')) {
+export default async function trendsFetch(top_n_keywords = 5, fill = false, date = moment().subtract(1, 'months')) {
     var datasets = await mostRecentArchive(date, top_n_keywords); // returns an array of datasets, each with data (to be pushed onto) & a label
     var keywords = [];
     datasets.forEach(dataset => { keywords.push(dataset.label); });
@@ -27,7 +34,7 @@ export default async function trendsFetch(top_n_keywords = 5, date = moment().su
         datasets[i].data  = datasets[i].data.concat(occurrences[i]).reverse();
         datasets[i].borderColor = `rgba(${colors[i % colors.length]}, .7)`;
         datasets[i].backgroundColor = `rgba(${colors[i % colors.length]}, .5)`;
-        datasets[i].fill = false;
+        datasets[i].fill = fill;
     }
 
     // reverse because we get it from most recent to least recent, but that looks odd graphed

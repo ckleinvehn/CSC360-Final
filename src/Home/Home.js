@@ -97,10 +97,9 @@ function NewsCard(props) {
     else props.handleOpen();
   };
 
-  // what follows is such a hack
-  // wanted the functionality of <Collapse /> but w/o normal flow
-  // so we create a box w/ the same width in its place
-  // and the CSS is basically spaghetti code
+  // what follows is such a hack: wanted the functionality of <Collapse /> but w/o normal flow
+  // so we create a box w/ the same width in its place and absolutely position the original
+  // and the CSS is basically spaghetti code; it was nice-looking code at some point
   return (
     <>
     {props.opened ? <Box width={300} maxHeight={0} /> : null}
