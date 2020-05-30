@@ -6,7 +6,7 @@ const AppStyles = makeStyles(theme => ({
   },
 
   appBar: {
-    backgroundColor: '#3469a1',
+    backgroundColor: '#3469A1',
   },
 
   barItems: {

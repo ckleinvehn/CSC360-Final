@@ -55,8 +55,8 @@ export default class Trends extends React.Component {
             fontSize: 16
           }
         }]
-    }
-    }
+      }
+    };
 
     return (
       <main style={{minHeight: '90vh', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0 5rem'}}>

@@ -19,6 +19,7 @@ import appStyles from './AppStyles';
 // React Components
 import Home from '../Home/Home';
 import Trends from '../Trends/Trends';
+import Browse from '../Browse/Browse';
 
 
 export default function App() {
@@ -51,6 +52,10 @@ export default function App() {
       <Switch>
         <Route path='/trends'>
           <Trends />
+        </Route>
+
+        <Route path='/browse'>
+          <Browse />
         </Route>
 
         <Route path='/'>
