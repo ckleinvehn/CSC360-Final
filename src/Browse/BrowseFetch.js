@@ -1,4 +1,5 @@
 import moment from 'moment';
+require('dotenv').config()
 
 
 /** @description Makes a fetch call for each query.
