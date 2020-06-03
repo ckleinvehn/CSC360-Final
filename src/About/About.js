@@ -98,7 +98,7 @@ export default function About (props) {
                     <a href='https://github.com/brandonhdz' target='_blank' rel='noopener noreferrer'>Brandon Hernandez</a>, {' '}
                     <a href='https://github.com/ckleinvehn' target='_blank' rel='noopener noreferrer'>Christian Kleinvehn</a>, {' '}
                     <a href='https://github.com/phr-nk' target='_blank' rel='noopener noreferrer'>Frank Lenoci</a>, and {' '}
-                    <a href='https://github.com/' target='_blank' rel='noopener noreferrer'>Rickey Serna</a>.
+                    <a href='https://github.com/RickeySerna' target='_blank' rel='noopener noreferrer'>Rickey Serna</a>.
                 </i>
             </Typography>
         </div>
