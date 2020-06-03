@@ -20,6 +20,7 @@ import appStyles from './AppStyles';
 import Home from '../Home/Home';
 import Trends from '../Trends/Trends';
 import Browse from '../Browse/Browse';
+import About from '../About/About';
 
 
 export default function App() {
@@ -46,6 +47,10 @@ export default function App() {
             <Typography className={classes.barItems}>Browse</Typography>
           </Link>
 
+          <Link className={classes.links} to='/about'>
+            <Typography className={classes.barItems}>About</Typography>
+          </Link>
+
         </Toolbar>
       </AppBar>
       
@@ -56,6 +61,10 @@ export default function App() {
 
         <Route path='/browse'>
           <Browse />
+        </Route>
+
+        <Route path='/about'>
+          <About />
         </Route>
 
         <Route path='/'>

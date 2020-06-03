@@ -102,10 +102,10 @@ export default class Trends extends React.Component {
           </Typography>
           {
             this.state.data === null ?
-              <div id="loading-box" justifyContent='center' alignItems='center' textAlign='center'>
+              <div id="loading-skeleton" style={{justifyContent: 'center', alignItems: 'center', textAlign: 'center',}}>
                 <LinearProgress />
                 <br></br>
-                <Skeleton variant="rect" height={500} width={1200} animation='wave' component='div'/>
+                <Skeleton position='relative' variant="rect" height='35rem' animation='wave' component='div'/>
               </ div>
               :
               <div style={{position: 'relative'}}>
