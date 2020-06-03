@@ -7,7 +7,7 @@ import React from 'react';
 
 // Material-UI
 import {
-  FormControl, Grid, InputLabel, LinearProgress, MenuItem, Select, withStyles, Switch, Typography
+  FormControl, Grid, InputLabel, LinearProgress, MenuItem, Select, withStyles, Switch, Typography, Box
 } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
@@ -95,11 +95,16 @@ export default class Trends extends React.Component {
     };
 
     return (
-      <main style={{minHeight: '90vh', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0 5rem'}}>
-        <div style={{textAlign: 'center'}}>
-          <Typography variant="h4" style={{margin: '1rem 0 5rem 0', fontVariant: 'small-caps', textTransform: 'lowercase'}}>
-            The <b><i>New York Times</i></b> informs of us of every article it has published. Here are our insights.
-          </Typography>
+      <main style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{textAlign: 'center', width: '74rem',}}>
+          <Box style={{margin: '0 0 5rem 0', }}>
+            <Typography variant="h4" style={{fontVariant: 'small-caps', textTransform: 'lowercase'}}>
+              The <b><i>New York Times</i></b> informs of us of every article it has published
+            </Typography>
+            <Typography variant='h6'>
+              Here are our insights
+            </Typography>
+          </Box>
           {
             this.state.data === null ?
               <div id="loading-skeleton" style={{justifyContent: 'center', alignItems: 'center', textAlign: 'center',}}>
@@ -134,7 +139,7 @@ export default class Trends extends React.Component {
                     </Grid>
                   </Typography>
                 </div>
-              <Line height={150} data={this.state.data} options={options} />
+              <Line data={this.state.data} options={options} />
               </div>
           }
         </div>

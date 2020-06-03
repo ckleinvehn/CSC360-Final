@@ -46,7 +46,6 @@ export default class Home extends React.Component {
 
   render() {
     const heading = {
-      marginTop: "2rem",
       textTransform: "lowercase",
       fontVariant: "small-caps",
       fontFamily: "Roboto, sans-serif",
@@ -61,7 +60,7 @@ export default class Home extends React.Component {
     }
 
     return (
-      <main style={{padding: "0 4rem"}} onClick={(e) => { console.log(e.target); }}>
+      <main onClick={(e) => { console.log(e.target); }}>
         <Typography variant="h3" align="center" style={heading}><b>Most Popular <i>New York Times</i> Articles</b></Typography>
         <Typography variant="h6" align="center" style={subheading}>from the Past 30 Days</Typography>
 

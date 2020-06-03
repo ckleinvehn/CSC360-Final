@@ -55,21 +55,29 @@ export default function App() {
       </AppBar>
       
       <Switch>
-        <Route path='/trends'>
-          <Trends />
-        </Route>
+          <Route path='/trends'>
+            <div className={classes.mainContent}>
+              <Trends />
+            </div>
+          </Route>
 
-        <Route path='/browse'>
-          <Browse />
-        </Route>
+          <Route path='/browse'>
+            <div className={classes.mainContent}>
+              <Browse />
+            </div>
+          </Route>
 
-        <Route path='/about'>
-          <About />
-        </Route>
+          <Route path='/about'>
+            <div className={classes.mainContent}>
+              <About />
+            </div>
+          </Route>
 
-        <Route path='/'>
-          <Home />
-        </Route>
+          <Route path='/'>
+            <div className={classes.mainContent}>
+              <Home />
+            </div>
+          </Route>
       </Switch>
     </div>
   );

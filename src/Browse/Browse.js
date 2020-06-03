@@ -140,7 +140,6 @@ class Browse extends React.Component {
     // yeah... I realize all the styling is a nightmare
 
     const half = {
-      display: 'flex',
       height: '80vh',
       width: '50%',
       position: 'absolute',
