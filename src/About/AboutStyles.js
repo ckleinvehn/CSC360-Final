@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { FaFileExcel } from 'react-icons/fa';
 
 const AboutStyles = makeStyles(theme => ({
     root: {
-        padding: '1rem 4rem',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -19,7 +19,13 @@ const AboutStyles = makeStyles(theme => ({
 
     icons: {
         paddingRight: '1rem'
-    }
+    },
+
+    technologies: {
+        display: 'flex',
+        overflow: 'auto',
+        justifyContent: 'center',
+    },
 }));
 
 export default AboutStyles;

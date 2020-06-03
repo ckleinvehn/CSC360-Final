@@ -23,7 +23,7 @@ const AppStyles = makeStyles(theme => ({
   },
 
   mainContent: {
-    padding: '2rem 4rem',
+    padding: '2% 4%',
   }
 }));
 

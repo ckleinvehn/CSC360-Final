@@ -24,11 +24,11 @@ export default function About (props) {
     const classes = AboutStyles();
     return (
         <div className={classes.root}>
-            <Typography className={classes.centeritems} variant='h3'>
+            <Typography className={classes.centeritems} display='flex' variant='h4'>
                 Technologies Used
             </Typography>
 
-            <Box className={classes.centeritems}>
+            <Box className={classes.technologies}>
                 <a className={classes.icons} href="https://www.heroku.com/" target="_blank" rel='noopener noreferrer'
                     style={{color: "purple",}} title="Heroku">
                     <GrHeroku size='4rem' /></a>
