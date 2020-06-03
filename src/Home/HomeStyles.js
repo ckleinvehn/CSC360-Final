@@ -36,7 +36,7 @@ const homeStyles = makeStyles(theme => ({
     },
 
     readMore: {
-        position: 'absolute',
+        position: 'relative',
         bottom: 10,
     },
 
@@ -47,13 +47,14 @@ const homeStyles = makeStyles(theme => ({
 
     expand: {
         transform: 'rotate(0deg)',
-        right: 3,
-        bottom: 3,
-        position: 'absolute',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+        }),
     },
 
     expandOpen: {
-        display: 'none'
+        transform: 'rotate(180deg)',
     },
 
     relativeFlow: {

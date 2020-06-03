@@ -120,7 +120,7 @@ function NewsCard(props) {
         </CardContent>
         
         <div className={clsx({[classes.opened]: props.opened}, {[classes.notOpened]: !props.opened})}>
-        <CardActions>
+        <CardActions disableSpacing>
             <Button
               className={clsx(classes.readMore, {[classes.readMoreOpen]: props.opened})}
               startIcon={<Link />}
