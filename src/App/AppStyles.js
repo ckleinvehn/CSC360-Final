@@ -20,6 +20,10 @@ const AppStyles = makeStyles(theme => ({
       color: 'lightgrey',
       textDecoration: 'underline',
     },
+  },
+
+  mainContent: {
+    padding: '2% 4%',
   }
 }));
 

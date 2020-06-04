@@ -4,6 +4,7 @@
 
 // Moment.js
 import moment from 'moment';
+require('dotenv').config()
 
 const colors = ['57, 106, 177',
                 '218, 124, 48',

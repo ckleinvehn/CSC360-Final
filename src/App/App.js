@@ -20,6 +20,7 @@ import appStyles from './AppStyles';
 import Home from '../Home/Home';
 import Trends from '../Trends/Trends';
 import Browse from '../Browse/Browse';
+import About from '../About/About';
 
 
 export default function App() {
@@ -46,21 +47,37 @@ export default function App() {
             <Typography className={classes.barItems}>Browse</Typography>
           </Link>
 
+          <Link className={classes.links} to='/about'>
+            <Typography className={classes.barItems}>About</Typography>
+          </Link>
+
         </Toolbar>
       </AppBar>
       
       <Switch>
-        <Route path='/trends'>
-          <Trends />
-        </Route>
+          <Route path='/trends'>
+            <div className={classes.mainContent}>
+              <Trends />
+            </div>
+          </Route>
 
-        <Route path='/browse'>
-          <Browse />
-        </Route>
+          <Route path='/browse'>
+            <div className={classes.mainContent}>
+              <Browse />
+            </div>
+          </Route>
 
-        <Route path='/'>
-          <Home />
-        </Route>
+          <Route path='/about'>
+            <div className={classes.mainContent}>
+              <About />
+            </div>
+          </Route>
+
+          <Route path='/'>
+            <div className={classes.mainContent}>
+              <Home />
+            </div>
+          </Route>
       </Switch>
     </div>
   );

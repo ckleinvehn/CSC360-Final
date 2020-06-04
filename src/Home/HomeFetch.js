@@ -3,6 +3,7 @@
  */
 
 import nytLogo from '../images/nyt-logo.jpg';
+require('dotenv').config()
 
 
 /** @description Fetches the NYT Most Popular API to retrieve the 20 most viewed articles for a given period.
