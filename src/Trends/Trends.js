@@ -18,6 +18,7 @@ import moment from 'moment';
 
 // Ours
 import trendsFetch from './TrendsFetch.js';
+import TopSections from './TopSections/TopSections';
 
 
 const BlueSwitch = withStyles({
@@ -95,9 +96,8 @@ export default class Trends extends React.Component {
     };
 
     return (
-      <main style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <div style={{textAlign: 'center', width: '74rem',}}>
-          <Box style={{margin: '0 0 5rem 0', }}>
+      <main display='block'>
+        <Box style={{margin: '0 0 5rem 0', textAlign: 'center', }}>
             <Typography variant="h4" style={{fontVariant: 'small-caps', textTransform: 'lowercase'}}>
               The <b><i>New York Times</i></b> informs of us of every article it has published
             </Typography>
@@ -105,6 +105,7 @@ export default class Trends extends React.Component {
               Here are our insights
             </Typography>
           </Box>
+        <div style={{display: 'inline', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width: '74rem',}}>
           {
             this.state.data === null ?
               <div id="loading-skeleton" style={{justifyContent: 'center', alignItems: 'center', textAlign: 'center',}}>
@@ -143,6 +144,11 @@ export default class Trends extends React.Component {
               </div>
           }
         </div>
+        <br>{/*Temporary fix*/}</br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <TopSections />
       </main>
     );
   }
