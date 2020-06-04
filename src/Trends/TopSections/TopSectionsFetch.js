@@ -1,5 +1,7 @@
 //** Frank Lenoci */
 
+require('dotenv').config()
+
 export default async function TopSectionFetch() {
   return fetch(
     `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${process.env.REACT_APP_NYT_KEY}`
