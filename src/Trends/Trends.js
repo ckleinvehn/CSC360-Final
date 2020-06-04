@@ -144,10 +144,7 @@ export default class Trends extends React.Component {
               </div>
           }
         </div>
-        <br>{/*Temporary fix*/}</br>
-        <br></br>
-        <br></br>
-        <br></br>
+
         <TopSections />
       </main>
     );
