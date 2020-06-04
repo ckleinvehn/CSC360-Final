@@ -1,0 +1,17 @@
+#piechart {
+  transform: scale(0.8) translateY(-10rem);
+}
+
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+#progress {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
