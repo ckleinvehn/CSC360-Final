@@ -20,6 +20,7 @@ class Static extends React.Component {
       sections: null,
       data: {},
     };
+    this.chartReference = React.createRef();
   }
   componentDidMount() {
     this.fetchData();
@@ -27,11 +28,14 @@ class Static extends React.Component {
   fetchData = () => {
     sectionFetch().then((data) => {
       this.setState({ sections: data });
+
       this.sectionCount();
     });
   };
+
   sectionCount() {
     var occurences = {};
+
     for (var i = 0; i < this.state.sections.length; i++) {
       if (this.state.sections[i].section in occurences) {
         occurences[this.state.sections[i].section] += 1;
@@ -39,6 +43,15 @@ class Static extends React.Component {
         occurences[this.state.sections[i].section] = 1;
       }
     }
+    //add aria-labels to the child canvas DOM component
+    this.chartReference.current.chartInstance.canvas.ariaLabel =
+      "Top Trending New York Times Sections Pie Chart, Measured in Number of Articles. ";
+    for (var section in occurences) {
+      this.chartReference.current.chartInstance.canvas.ariaLabel +=
+        section + ": " + occurences[section] + ", ";
+    }
+    console.log(this.chartReference.current.chartInstance.canvas.ariaLabel);
+
     this.setState({ data: occurences });
   }
   render() {
@@ -63,22 +76,21 @@ class Static extends React.Component {
         fontSize: 24,
       },
     };
-      return (
-        <div id='top-sections'>
-        {
-          (this.state.sections === null) ?
+    return (
+      <div id="top-sections">
+        {this.state.sections === null ? (
           <div id="piechart">
             <div id="progress">
               <CircularProgress size={400} />
             </div>
           </div>
-          :
+        ) : (
           <div id="piechart">
-            <Pie data={data} options={options} />
+            <Pie ref={this.chartReference} data={data} options={options} />
           </div>
-        }
-        </div>
-      );
+        )}
+      </div>
+    );
   }
 }
 
