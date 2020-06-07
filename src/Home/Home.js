@@ -75,7 +75,7 @@ export default class Home extends React.Component {
             Most Popular <i>New York Times</i> Articles
           </b>
         </Typography>
-        <Typography variant="h6" align="center" style={subheading}>
+        <Typography variant="h4" align="center" style={subheading}>
           from the Past 30 Days
         </Typography>
 
@@ -117,7 +117,6 @@ function NewsCard(props) {
     <>
       {props.opened ? <Box width={300} maxHeight={0} /> : null}
       <Card
-        tabIndex={1}
         className={clsx(
           classes.article,
           { [classes.absoluteFlow]: props.opened },
@@ -125,19 +124,12 @@ function NewsCard(props) {
         )}
         raised
       >
-        <a
-          aria-label="image-link"
-          href={props.article.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <CardMedia
-            className={classes.thumbnail}
-            image={props.article.thumbnail}
-            title={props.article.headline}
-            alt={props.article.headline}
-          />
-        </a>
+        <CardMedia
+          className={classes.thumbnail}
+          image={props.article.thumbnail}
+          title={props.article.headline}
+          alt={props.article.headline}
+        />
 
         <CardContent>
           <Typography variant="h5" gutterBottom>
@@ -166,7 +158,7 @@ function NewsCard(props) {
               target="_blank"
               size="small"
             >
-              Read More
+              Full Article
             </Button>
             <IconButton
               className={clsx(classes.expand, {
@@ -174,7 +166,7 @@ function NewsCard(props) {
               })}
               onClick={handleExpandClick}
               aria-expanded={props.opened}
-              aria-label="show more"
+              aria-label="read more"
             >
               <ExpandMore />
             </IconButton>
