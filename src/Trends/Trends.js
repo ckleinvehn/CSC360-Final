@@ -59,7 +59,7 @@ export default class Trends extends React.Component {
             </b>{" "}
             informs of us of every article it has published
           </Typography>
-          <Typography variant="h3">Here are our insights</Typography>
+          <Typography variant="h5">Here are our insights</Typography>
           <div>
             Top Keywords
             <Switch
