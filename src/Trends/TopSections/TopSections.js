@@ -79,10 +79,8 @@ class Static extends React.Component {
     return (
       <div id="top-sections">
         {this.state.sections === null ? (
-          <div id="piechart">
-            <div id="progress">
-              <CircularProgress size={400} />
-            </div>
+          <div id="progress">
+            <CircularProgress size={400} />
           </div>
         ) : (
           <div id="piechart">
